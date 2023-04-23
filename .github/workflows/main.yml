@@ -14,8 +14,8 @@ jobs:
           event-type: Trigger LogUtility
       - name: Output results
         run: |
-          echo "Found ${{ github.event }}"
-          echo "Found ${{ inputs }}"
+          echo "${{ github.event }}"
+          #echo "Found ${{ inputs }}"
           #for i in ${{ steps.pl.outputs.paths }}; do
           #echo $i
           #done
