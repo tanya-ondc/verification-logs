@@ -13,7 +13,9 @@ jobs:
           repository: tanya-ondc/log-verification-utility 
           event-type: Trigger LogUtility
       - name: Output results
-        run: echo "Found ${{ github.event.ref }}"
+        run: |
+          echo "Found ${{ github }}"
+          echo "Found ${{ inputs }}"
           #for i in ${{ steps.pl.outputs.paths }}; do
           #echo $i
           #done
