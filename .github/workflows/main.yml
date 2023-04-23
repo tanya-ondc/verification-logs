@@ -12,3 +12,8 @@ jobs:
           token: ${{secrets.ACTIONS_TOKEN}}
           repository: tanya-ondc/log-verification-utility 
           event-type: Trigger LogUtility
+      - name: Output results
+        run: echo "Found ${{ github.event.ref }}"
+          #for i in ${{ steps.pl.outputs.paths }}; do
+          #echo $i
+          #done
