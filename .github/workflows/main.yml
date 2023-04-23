@@ -14,17 +14,15 @@ jobs:
           format: 'json'
       - name: Output
         id: out
-        run: >-
-          echo "::set-output name=sellerid::$(
-            id=${{ steps.files.outputs.all }} |
-            echo "${id}" | 
-            awk -F '/' '{print $2}'
-          )"
+        run: |
+          id=${{ steps.files.outputs.all }}[0]
+          sellerid=$(echo "${id}" | awk -F '/' '{print $2}')
+          echo $sellerid >> "$GITHUB_ENV"
       - name: Trigger LogUtility
         uses: peter-evans/repository-dispatch@v1
         with:
           token: ${{secrets.ACTIONS_TOKEN}}
           repository: tanya-ondc/log-verification-utility 
           event-type: Trigger LogUtility
-          client-payload: '{"ref": "${{ steps.out.outputs.sellerid }}"}'
+          client-payload: '{"ref": "${{ env.sellerid }}"}'
           
