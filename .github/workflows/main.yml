@@ -19,5 +19,7 @@ jobs:
           format: 'json'
       - run: |
           for changed_file in ${{ steps.files.outputs.all }}; do
-            echo "${changed_file}."
+            echo "${changed_file} | awk -F '/' '{print $2}'
           done
+          id=${{ steps.files.outputs.all }}[0]
+          echo "${id} | awk -F '/' '{print $2}'
