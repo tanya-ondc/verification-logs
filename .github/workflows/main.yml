@@ -21,7 +21,3 @@ jobs:
           for changed_file in ${{ steps.files.outputs.all }}; do
             echo "${changed_file}."
           done
-          #run: |
-            #for i in ${{ All }}; do
-            #echo $i
-            #done
