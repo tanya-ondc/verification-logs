@@ -25,4 +25,5 @@ jobs:
           token: ${{secrets.ACTIONS_TOKEN}}
           repository: tanya-ondc/log-verification-utility 
           event-type: Trigger LogUtility
-          client-payload: ${{ steps.out.outputs.sellerid }}
+          client-payload: '{"ref": "${{ steps.out.outputs.sellerid }}"}'
+          
