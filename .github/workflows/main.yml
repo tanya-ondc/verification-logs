@@ -9,7 +9,7 @@ jobs:
     steps:
       - name: Get File
         id: files
-        uses: Stockopedia/get-changed-files@v1
+        uses: Stockopedia/action-get-changed-files@v1
         with:
           format: 'json'
           foldersOnly: true
