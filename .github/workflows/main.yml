@@ -13,11 +13,15 @@ jobs:
           repository: tanya-ondc/log-verification-utility 
           event-type: Trigger LogUtility
       - name: Get File
-        id: file
+        id: files
         uses: jitterbit/get-changed-files@v1
         with:
           format: 'json'
-          run: |
-            for i in ${{ All }}; do
-            echo $i
-            done
+      - run: |
+          for changed_file in ${{ steps.files.outputs.all }}; do
+            echo "${changed_file}."
+          done
+          #run: |
+            #for i in ${{ All }}; do
+            #echo $i
+            #done
