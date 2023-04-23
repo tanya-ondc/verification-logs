@@ -2,7 +2,7 @@ name: LogUtility Trigger
 on:
   push:
     branches: [master]
-    paths: 'logs/**'
+    #paths: 'logs/**'
 jobs:
   build:
     runs-on: ubuntu-latest
