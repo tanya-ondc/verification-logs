@@ -12,9 +12,8 @@ jobs:
           token: ${{secrets.ACTIONS_TOKEN}}
           repository: tanya-ondc/log-verification-utility 
           event-type: Trigger LogUtility
-      - name: Output results
-        run: echo "${{ github.event.commits }} | sed 's/ /, /g'"
-          #echo "Found ${{ inputs }}"
-          #for i in ${{ steps.pl.outputs.paths }}; do
-          #echo $i
-          #done
+      - name: Dump GitHub context
+        env:
+          GITHUB_CONTEXT: ${{ toJson(github) }}
+        run: |
+          echo "$GITHUB_CONTEXT"
