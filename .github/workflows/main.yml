@@ -17,3 +17,7 @@ jobs:
           GITHUB_CONTEXT: ${{ toJson(github) }}
         run: |
           echo "$GITHUB_CONTEXT"
+      - id: files
+        uses: jitterbit/get-changed-files@v1
+        #with:
+          #format: 'json'
