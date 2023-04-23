@@ -12,6 +12,7 @@ jobs:
         uses: jitterbit/get-changed-files@v1
         with:
           format: 'json'
+          foldersOnly: true
       - name: Output
         id: out
         run: |
