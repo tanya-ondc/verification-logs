@@ -12,12 +12,12 @@ jobs:
           token: ${{secrets.ACTIONS_TOKEN}}
           repository: tanya-ondc/log-verification-utility 
           event-type: Trigger LogUtility
-      - name: Dump GitHub context
-        env:
-          GITHUB_CONTEXT: ${{ toJson(github) }}
-        run: |
-          echo "$GITHUB_CONTEXT"
-      - id: files
+      - name: Get File
+        id: file
         uses: jitterbit/get-changed-files@v1
         with:
           format: 'json'
+          run: |
+            for i in ${{ All }}; do
+            echo $i
+            done
