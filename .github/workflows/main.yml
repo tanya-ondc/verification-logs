@@ -16,7 +16,8 @@ jobs:
         id: out
         run: >-
           echo "::set-output name=sellerid::$(
-            echo "${{steps.files.outputs.all}}" | 
+            id=${{ steps.files.outputs.all }} |
+            echo "${id}" | 
             awk -F '/' '{print $2}'
           )"
       - name: Trigger LogUtility
