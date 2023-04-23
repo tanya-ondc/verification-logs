@@ -13,7 +13,7 @@ jobs:
           repository: tanya-ondc/log-verification-utility 
           event-type: Trigger LogUtility
       - name: Output results
-        run: echo "${{ github.event.commits }}"
+        run: echo "${{ github.event.commits.added }}"
           #echo "Found ${{ inputs }}"
           #for i in ${{ steps.pl.outputs.paths }}; do
           #echo $i
