@@ -2,13 +2,10 @@ name: LogUtility Trigger
 on:
   push:
     branches: [master]
-
 jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      - name: echo
-        run: echo ${{secrets.ACTIONS_TOKEN}}
       - name: Trigger LogUtility
         uses: peter-evans/repository-dispatch@v1
         with:
