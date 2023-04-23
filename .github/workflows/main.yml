@@ -13,6 +13,7 @@ jobs:
         with:
           format: 'json'
           foldersOnly: true
+          ignore: "**/*.yaml"
       - name: Output
         id: out
         run: |
