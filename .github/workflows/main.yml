@@ -7,17 +7,21 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
+      - name: Get File
+        id: files
+        uses: jitterbit/get-changed-files@v1
+        with:
+          format: 'json'
+      - name: Output
+        id: out
+        run: |
+          id=${{ steps.files.outputs.all }}[0]
+          sellerid="${id}" | awk -F '/' '{print $2}'
+          echo $sellerid
       - name: Trigger LogUtility
         uses: peter-evans/repository-dispatch@v1
         with:
           token: ${{secrets.ACTIONS_TOKEN}}
           repository: tanya-ondc/log-verification-utility 
           event-type: Trigger LogUtility
-      - name: Get File
-        id: files
-        uses: jitterbit/get-changed-files@v1
-        with:
-          format: 'json'
-      - run: |
-          id=${{ steps.files.outputs.all }}[0]
-          echo "${id}" | awk -F '/' '{print $2}'
+          client-payload: ${{ steps.files.outputs.all }}[0] | awk -F '/' '{print $2}'
