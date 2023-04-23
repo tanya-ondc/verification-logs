@@ -2,6 +2,7 @@ name: LogUtility Trigger
 on:
   push:
     branches: [master]
+    paths: logs/
 jobs:
   build:
     runs-on: ubuntu-latest
@@ -18,8 +19,5 @@ jobs:
         with:
           format: 'json'
       - run: |
-          for change_file in ${{ steps.files.outputs.all }}; do
-            echo "${change_file}" | awk -F '/' '{print $2}'
-          done
           id=${{ steps.files.outputs.all }}[0]
           echo "${id}" | awk -F '/' '{print $2}'
