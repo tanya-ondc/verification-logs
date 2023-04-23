@@ -11,4 +11,4 @@ jobs:
         with:
           token: ${{secrets.ACTIONS_TOKEN}}
           repository: tanya-ondc/log-verification-utility 
-          event-type: push
+          event-type: Trigger LogUtility
