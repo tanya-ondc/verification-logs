@@ -9,11 +9,9 @@ jobs:
     steps:
       - name: Get File
         id: files
-        uses: Stockopedia/action-get-changed-files@v1
+        uses: jitterbit/get-changed-files@v1
         with:
           format: 'json'
-          foldersOnly: true
-          ignore: "**/*.yaml"
       - name: Output
         id: out
         run: |
