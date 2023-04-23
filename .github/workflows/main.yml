@@ -17,7 +17,7 @@ jobs:
         run: |
           id=${{ steps.files.outputs.all }}[0]
           echo $id
-          sellerid=$(echo "${id}" | awk -F '/' '{print $2})
+          sellerid=$(echo "${id}" | awk -F '/' '{print $2}')
           echo $sellerid
       - name: Trigger LogUtility
         uses: peter-evans/repository-dispatch@v1
